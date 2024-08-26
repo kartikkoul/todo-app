@@ -1,0 +1,264 @@
+:root{
+    --primary-btn-color: #286df6;
+    --primary-btn-color-hover: #2259c7;
+    --primary-cancel-btn-color: rgb(185, 49, 49);
+    --primary-cancel-btn-color-hover: rgb(170, 48, 48);
+}
+
+
+*{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+
+body{
+    background: linear-gradient(to bottom right, #001aff 6%, rgb(0, 255, 191));
+    margin: 0;
+    max-height: 100rem;
+    overflow: hidden;
+}
+
+.add-task-actions{
+    background: rgb(255, 255, 255);
+    width: 40rem;
+    margin: 1rem auto;
+    border-radius: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 10rem;
+    position: relative;
+}
+
+.add-task-actions input{
+    width: 16rem;
+    height: 2rem;
+    text-align: center;
+    outline: 0;
+    border: 1px solid rgb(16, 146, 221);
+    font-size: 0.9rem;
+    font-weight: 500;
+    position: absolute;
+    top: 4rem;
+}
+
+.add-task-actions input:focus{
+    border: 2px solid rgb(0, 162, 255);
+}
+
+.add-task-actions i{
+    color: rgb(16, 70, 247);
+}
+
+
+.actionButtons{
+    margin: 1rem 0;
+}
+
+.add-task-actions button{
+    margin: 0 0.5rem;
+    background: var(--primary-btn-color);
+    outline: 0;
+    border: 0;
+    color: white;
+    font-weight: 500;
+    height: 2rem;
+    width: 8rem;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+}
+
+
+.add-task-actions button:hover{
+    background-color: var(--primary-btn-color-hover);
+}
+
+button#addTodo{
+    margin-top: 2rem;
+}
+
+.add-task-actions button#deleteFirstTodo, button#deleteLastTodo{
+    background: var(--primary-cancel-btn-color);
+}
+
+.add-task-actions button#deleteFirstTodo:hover, button#deleteLastTodo:hover{
+    background-color: var(--primary-cancel-btn-color-hover);
+}
+
+button#deleteLastTodo{
+    margin-bottom: 2rem;
+}
+
+.todo-tasks{
+    background: white;
+    width: 40rem;
+    margin: 0 auto;
+    border-radius: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 45rem;
+}
+
+.progressBar{
+    display: flex;
+    align-items: center;
+    width: 80%;
+}
+
+.progressBarOuter{
+    background: rgb(188, 188, 188);
+    width: 90%;
+    height: 0.8rem;
+    margin: 0 0 0 0.5rem;
+    border-radius: 1rem;
+    position: relative;
+}
+
+.progressBarOuter p{
+    position: absolute;
+    top: -0.7rem;
+    left: 12rem;
+    font-size: 0.6rem;
+    color: white;
+    font-weight: 900;
+}
+
+.progressInner{
+    background: var(--primary-btn-color);
+    height: 0.8rem;
+    border-radius: 1rem;
+    transition: 1s ease-in-out;
+}
+
+ul{
+    margin: 0.5rem 0;
+    padding: 0;
+    width: 90%;
+    background: rgb(245, 245, 245);
+    border-radius: 0.6rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: scroll;
+    min-height: 34rem;
+    max-height: 34rem;
+}
+
+ul>h2{
+    color: rgb(163, 163, 163);
+}
+
+li.task-item{
+    margin: 0.5rem 0;
+    list-style: none;
+    width: 90%;
+    background: white;
+    min-height: 4.5rem;
+    box-shadow: 0px 0px 24px 1px rgb(212, 212, 212);
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+li.task-item input{
+    width: 1.4rem;
+    outline: 0;
+    background: white;
+    border-radius: 0;
+}
+
+li.task-item>span{
+    text-align: left;
+    width: 85%;
+    font-weight: 700;
+    display: flex;
+}
+
+li.task-item button{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100%;
+    border: 0;
+    background: var(--primary-cancel-btn-color);
+    color: white;
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+
+li.task-item button:hover{
+    background-color: var(--primary-cancel-btn-color-hover);
+}
+
+
+/* Customize the label (the container) */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: rgb(245, 245, 245);
+    border: 1.5px solid #b6cdf8;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    border: 1.5px solid var(--primary-btn-color);
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #286df6;
+    border: 1.5px solid #286df6;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 4px;
+    top: 1px;
+    width: 3px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
